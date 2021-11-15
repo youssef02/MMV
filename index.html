@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    window.$ = window.jQuery = require('jquery');
+  </script>
+
+  <script src="qrcode.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.7.0/css/ol.css"
+    type="text/css">
+
+  </style>
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.7.0/build/ol.js"></script>
+
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      
+      height: 100vh;
+      padding-bottom: 60px;
+    }
+
+   
+
+    #map {
+      height: 100%;
+      width: 100%;
+      margin: 0px;      
+    }
+
+    .my-sidebar {
+    -ms-flex: 0 0 25px;
+    flex: 0 0 25px;
+    background-color: greenyellow; 
+}
+  </style>
+</head>
+
+<body>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid h-100" id="mainview">
+    <div class="row h-100">
+      <div class="col-8 mainviewmap mh-100">
+        <div id="map" class="map h-100"></div>
+      </div>
+      <div class="col-4">
+        <div class="row">
+          <input type="button" id="datafile" class="btn btn-outline-primary" value="Select File ...">
+
+        </div>
+        <div class="row">
+          <button type="button" class="btn btn-outline-primary" id="runanalyBTN" data-bs-toggle="modal"
+          data-bs-target="#myModal"> Run Analyze</button>
+
+        </div>
+        <div class="row">
+          <input type="button" class="btn btn-outline-primary" value="Export PNG" id="exportPngBTN">
+
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="container">
+              <div class="row mt-3">
+                <div class="col-12">
+                  <div id="qrcodeholder" class="d-flex justify-content-center">
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-12 lead">
+                  Scan this QRcode using the App to send data.
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <div class="container-fluid">
+          <div class="row mw-100">
+            <div class="col-3  my-sidebar" >
+              <h6 >
+                <button class="btn"> 
+                  <i class="bi bi-play" style="font-size: 2rem; color: cornflowerblue;"></i>
+                </button>
+              </h6>
+              
+            </div>
+            <div class="col-9" style="
+            padding: revert;
+            margin: auto;
+        ">
+              <input type="range" class="form-range" disabled id="progress">
+
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+      <div class="col-4 ">
+        <div class="row">
+          <button id="genvidBTN"  class="btn btn-outline-success">
+            Generate Video
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+  </div>
+  <script src="./renderer.js">
+
+  </script>
+</body>
+
+</html>
